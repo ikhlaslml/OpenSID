@@ -95,8 +95,8 @@ switch (ENVIRONMENT) {
  * Set the path if it is not in the same directory as this file.
  */
 
-// Menentukan Path Sistem dan Aplikasi
-$system_path = 'vendor/codeigniter/framework/system';
+// Menentukan Path Sistem dan Aplikasi agar lebih fleksibel diubah seperti ini
+$system_path = getenv('SYSTEM_PATH') ?: 'vendor/codeigniter/framework/system';
 
 /*
  *---------------------------------------------------------------
@@ -113,7 +113,8 @@ $system_path = 'vendor/codeigniter/framework/system';
  *
  * NO TRAILING SLASH!
  */
-$application_folder = 'donjo-app';
+// agar lebih fleksibel diubah menjadi seperti ini
+$application_folder = getenv('APP_FOLDER') ?: 'donjo-app';
 
 /*
  *---------------------------------------------------------------
