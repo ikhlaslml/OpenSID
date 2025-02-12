@@ -52,6 +52,9 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
+
+// Menentukan Environment pada Aplikasi, 
+// jika tidak ada nilai CI_ENV maka defultnya adalah production
 define('ENVIRONMENT', $_SERVER['CI_ENV'] ?? 'production');
 
 /*
@@ -62,6 +65,8 @@ define('ENVIRONMENT', $_SERVER['CI_ENV'] ?? 'production');
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
+
+// Pengaturan Error Reporting
 switch (ENVIRONMENT) {
     case 'development':
         error_reporting(-1);
@@ -89,6 +94,8 @@ switch (ENVIRONMENT) {
  * This variable must contain the name of your "system" directory.
  * Set the path if it is not in the same directory as this file.
  */
+
+// Menentukan Path Sistem dan Aplikasi
 $system_path = 'vendor/codeigniter/framework/system';
 
 /*
@@ -183,6 +190,7 @@ if (defined('STDIN')) {
     chdir(__DIR__);
 }
 
+// Mengecek dan Menyesuaikan Path
 if (($_temp = realpath($system_path)) !== false) {
     $system_path = $_temp . DIRECTORY_SEPARATOR;
 } else {
@@ -207,6 +215,8 @@ if (! is_dir($system_path)) {
  *  Now that we know the path, set the main path constants
  * -------------------------------------------------------------------
  */
+
+// Menentukan Konstanta Path
 // The name of THIS file
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
@@ -281,4 +291,5 @@ define('FORCE_HTTPS', false);
  *
  * And away we go...
  */
+// Memuat Bootstrap Codeigniter
 require_once BASEPATH . 'core/CodeIgniter.php';
